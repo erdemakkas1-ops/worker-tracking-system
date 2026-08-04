@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/WorkerTracking.Api/WorkerTracking.Api.csproj" />
+    <Project Path="src/WorkerTracking.Application/WorkerTracking.Application.csproj" />
+    <Project Path="src/WorkerTracking.Domain/WorkerTracking.Domain.csproj" />
+    <Project Path="src/WorkerTracking.Infrastructure/WorkerTracking.Infrastructure.csproj" />
+  </Folder>
+</Solution>

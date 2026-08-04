@@ -1,0 +1,25 @@
+## Build
+bin/
+obj/
+*.user
+*.suo
+
+## Database
+*.db
+*.db-shm
+*.db-wal
+
+## IDE
+.vs/
+.idea/
+
+## Logs
+logs/
+*.log
+
+## Storage
+storage/
+
+## OS
+Thumbs.db
+.DS_Store
