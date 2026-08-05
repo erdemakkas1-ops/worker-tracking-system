@@ -29,8 +29,12 @@ public static class DependencyInjection
         services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlite(connectionString));
 
+            services.AddHttpContextAccessor();
+
         services.AddScoped<IApplicationDbContext>(provider =>
             provider.GetRequiredService<ApplicationDbContext>());
+
+            services.AddScoped<ICurrentUserService, CurrentUserService>();
 
         services.AddAuthentication(options =>
             {
