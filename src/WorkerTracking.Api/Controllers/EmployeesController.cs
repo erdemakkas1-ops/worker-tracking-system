@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using WorkerTracking.Application.Features.Employees.Create;
 using WorkerTracking.Application.Features.Employees.GetAll;
 using WorkerTracking.Application.Features.Employees.GetById;
+using WorkerTracking.Application.Features.Employees.Update;
+using WorkerTracking.Application.Features.Employees.Delete;
 
 namespace WorkerTracking.Api.Controllers;
 
@@ -36,5 +38,24 @@ public class EmployeesController : ControllerBase
     {
         var result = await _mediator.Send(new GetEmployeeByIdQuery(id));
         return Ok(result);
+    }
+
+    [HttpPut("{id:guid}")]
+    public async Task<IActionResult> Update(Guid id, UpdateEmployeeCommand command)
+    {
+        if (id != command.Id)
+        {
+            return BadRequest();
+        }
+
+        await _mediator.Send(command);
+        return NoContent();
+    }
+
+    [HttpDelete("{id:guid}")]
+    public async Task<IActionResult> Delete(Guid id)
+    {
+        await _mediator.Send(new DeleteEmployeeCommand(id));
+        return NoContent();
     }
 }
