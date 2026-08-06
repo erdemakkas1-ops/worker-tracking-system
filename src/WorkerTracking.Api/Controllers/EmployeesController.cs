@@ -2,6 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using WorkerTracking.Application.Features.Employees.Create;
 using WorkerTracking.Application.Features.Employees.GetAll;
+using WorkerTracking.Application.Features.Employees.GetById;
 
 namespace WorkerTracking.Api.Controllers;
 
@@ -27,6 +28,13 @@ public class EmployeesController : ControllerBase
     public async Task<IActionResult> GetAll()
     {
         var result = await _mediator.Send(new GetEmployeesQuery());
+        return Ok(result);
+    }
+
+    [HttpGet("{id:guid}")]
+    public async Task<IActionResult> GetById(Guid id)
+    {
+        var result = await _mediator.Send(new GetEmployeeByIdQuery(id));
         return Ok(result);
     }
 }
