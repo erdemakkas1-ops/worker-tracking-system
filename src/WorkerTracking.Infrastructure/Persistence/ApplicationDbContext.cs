@@ -20,6 +20,8 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
     public DbSet<User> Users => Set<User>();
     public DbSet<Role> Roles => Set<Role>();
     public DbSet<Priority> Priorities => Set<Priority>();
+    public DbSet<Employee> Employees => Set<Employee>();
+    public DbSet<Department> Departments => Set<Department>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

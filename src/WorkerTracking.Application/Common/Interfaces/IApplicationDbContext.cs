@@ -8,6 +8,8 @@ public interface IApplicationDbContext
     DbSet<User> Users { get; }
     DbSet<Role> Roles { get; }
     DbSet<Priority> Priorities { get; }
+    DbSet<Employee> Employees { get; }
+    DbSet<Department> Departments { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }
